@@ -1,8 +1,12 @@
 {
   "mcpServers": {
-    "storybook-mcp": {
+    "storybook-mcp-local": {
       "type": "http",
       "url": "http://localhost:6007/mcp"
+    },
+    "storybook-deployed-mcp": {
+      "type": "http",
+      "url": "https://master--692756f02a0e5d484db58727.chromatic.com/mcp"
     }
   }
 }
