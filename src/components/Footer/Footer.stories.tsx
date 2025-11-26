@@ -16,17 +16,37 @@ const meta: Meta<typeof Footer> = {
 export default meta;
 type Story = StoryObj<typeof Footer>;
 
-export const Base: Story = {};
+export const Base: Story = {
+  args: {
+    copyright: "© 2024 My Company. All rights reserved.",
+    links: (
+      <>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/contact">Contact</a>
+      </>
+    ),
+    socialMedia: <a href="https://twitter.com">Twitter</a>,
+    content: (
+      <div>
+        <h3>About</h3>
+        <p>This is a footer component</p>
+      </div>
+    ),
+  },
+};
 
 export const Inverse: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
 };
 
 export const LightTheme: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [320, 768, 1024, 1280] },
@@ -36,6 +56,7 @@ export const LightTheme: Story = {
 export const DarkTheme: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -46,9 +67,10 @@ export const DarkTheme: Story = {
 export const MobileLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
-    viewport: { defaultViewport: "mobile1" },
+    viewport: { defaultViewport: "mobile1" }, // This is wrong, there's no default viewport
     chromatic: { viewports: [320] },
   },
 };
@@ -56,6 +78,7 @@ export const MobileLight: Story = {
 export const MobileDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -67,6 +90,7 @@ export const MobileDark: Story = {
 export const TabletLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     viewport: { defaultViewport: "tablet" },
@@ -77,6 +101,7 @@ export const TabletLight: Story = {
 export const TabletDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -88,6 +113,7 @@ export const TabletDark: Story = {
 export const DesktopLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     viewport: { defaultViewport: "desktop" },
@@ -98,6 +124,7 @@ export const DesktopLight: Story = {
 export const DesktopDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -109,6 +136,7 @@ export const DesktopDark: Story = {
 export const WideScreenLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1536] },
@@ -118,6 +146,7 @@ export const WideScreenLight: Story = {
 export const WideScreenDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -128,6 +157,7 @@ export const WideScreenDark: Story = {
 export const SmallMobileLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [375] },
@@ -137,6 +167,7 @@ export const SmallMobileLight: Story = {
 export const SmallMobileDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -147,6 +178,7 @@ export const SmallMobileDark: Story = {
 export const LargeMobileLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [414] },
@@ -156,6 +188,7 @@ export const LargeMobileLight: Story = {
 export const LargeMobileDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -166,6 +199,7 @@ export const LargeMobileDark: Story = {
 export const CompactTabletLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [640] },
@@ -185,6 +219,7 @@ export const CompactTabletDark: Story = {
 export const StandardDesktopLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1280] },
@@ -194,6 +229,7 @@ export const StandardDesktopLight: Story = {
 export const StandardDesktopDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -204,6 +240,7 @@ export const StandardDesktopDark: Story = {
 export const UltraWideLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1920] },
@@ -213,6 +250,7 @@ export const UltraWideLight: Story = {
 export const UltraWideDark: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -223,6 +261,7 @@ export const UltraWideDark: Story = {
 export const WithCustomBackground: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   decorators: [
     (Story) => (
@@ -246,12 +285,14 @@ export const WithDarkCustomBackground: Story = {
   ],
   parameters: {
     backgrounds: { default: "dark" },
+    ...Base.args,
   },
 };
 
 export const NarrowViewport: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [280] },
@@ -261,6 +302,7 @@ export const NarrowViewport: Story = {
 export const MediumViewport: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [800] },
@@ -270,6 +312,7 @@ export const MediumViewport: Story = {
 export const LargeViewport: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1440] },
@@ -279,6 +322,7 @@ export const LargeViewport: Story = {
 export const ExtraLargeViewport: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [2560] },
@@ -288,6 +332,7 @@ export const ExtraLargeViewport: Story = {
 export const PortraitMobile: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [390] },
@@ -297,6 +342,7 @@ export const PortraitMobile: Story = {
 export const LandscapeMobile: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [844] },
@@ -306,6 +352,7 @@ export const LandscapeMobile: Story = {
 export const IPadPortrait: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [820] },
@@ -315,6 +362,7 @@ export const IPadPortrait: Story = {
 export const IPadLandscape: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1180] },
@@ -324,6 +372,7 @@ export const IPadLandscape: Story = {
 export const LaptopScreen: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1366] },
@@ -333,6 +382,7 @@ export const LaptopScreen: Story = {
 export const FullHDScreen: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1920] },
@@ -342,6 +392,7 @@ export const FullHDScreen: Story = {
 export const FourKScreen: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1200] },
@@ -351,6 +402,7 @@ export const FourKScreen: Story = {
 export const MinimalMobile: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [320] },
@@ -361,6 +413,7 @@ export const MinimalMobile: Story = {
 export const ExpandedTablet: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -382,6 +435,7 @@ export const WideDesktop: Story = {
 export const CompactLayout: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [480] },
@@ -391,6 +445,7 @@ export const CompactLayout: Story = {
 export const StandardLayout: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -401,6 +456,7 @@ export const StandardLayout: Story = {
 export const ExpandedLayout: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1728] },
@@ -410,6 +466,7 @@ export const ExpandedLayout: Story = {
 export const MaximizedLayout: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -420,6 +477,7 @@ export const MaximizedLayout: Story = {
 export const MobileLightFullscreen: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [360] },
@@ -430,6 +488,7 @@ export const MobileLightFullscreen: Story = {
 export const TabletDarkFullscreen: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -441,6 +500,7 @@ export const TabletDarkFullscreen: Story = {
 export const DesktopLightFullscreen: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [1280] },
@@ -451,6 +511,7 @@ export const DesktopLightFullscreen: Story = {
 export const DesktopDarkFullscreen: Story = {
   args: {
     background: "dark",
+    ...Base.args,
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -462,6 +523,7 @@ export const DesktopDarkFullscreen: Story = {
 export const ResponsiveTest: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [320, 768, 1024, 1440] },
@@ -469,6 +531,9 @@ export const ResponsiveTest: Story = {
 };
 
 export const ThemeComparison: Story = {
+  args: {
+    ...Base.args,
+  },
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <Footer background="light" links="a" />
@@ -494,6 +559,7 @@ export const SideByComparison: Story = {
 export const AllViewportsLight: Story = {
   args: {
     background: "light",
+    ...Base.args,
   },
   parameters: {
     chromatic: { viewports: [320, 414, 768, 1024, 1280, 1920] },
