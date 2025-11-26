@@ -10,4 +10,5 @@ Create the following component based on the following specifications:
 - If the argument is empty, respond with "Component name is required"
 - The component must be styled using Emotion CSS-in-JS library
 - The files should be created in the @src/components directory inside a folder named $ARGUMENTS to match the component name
+- The component should have a named export and export it from an index.ts file in the same directory
 - It should include JSDoc comments for the component and its props
